@@ -13,9 +13,9 @@ This is a continuation of the OpenGamma project by Marcelo Maduar with his permi
 
 ## Installation
 
-### Compile opengammamathfuncs
+### Compile `opengammamathfuncs`
 
-1. Navigate to [`opengammamathfuncs`](./opengammamathfuncs/) and open [`opengammamathfuncs.pro`](./opengammamathfuncs/opengammamathfuncs.pro)
+1. Navigate to [`opengammamathfuncs/`](./opengammamathfuncs/) and open [`opengammamathfuncs.pro`](./opengammamathfuncs/opengammamathfuncs.pro)
    in a text editor
 
 2. Modify `GSL_ROOT` and `GSL_LIB` so that the `libgsl.so` and `libgslcblas.so` shared libraries are included. The
@@ -34,8 +34,8 @@ This is a continuation of the OpenGamma project by Marcelo Maduar with his permi
    make clean
    ```
 
-### Compile opengammax
-1. Navigate to [`build`](./build/) and open [`opengammax.pro`](./build/opengammax.pro) in a text editor
+### Compile `opengammax`
+1. Navigate to [`build/`](./build/) and open [`opengammax.pro`](./build/opengammax.pro) in a text editor
 
 2. Make sure `QT_INCLUDEPATH` points to the location of QT 4 C header files and `QWT_INCLUDEPATH` points to the location
    of QWT 6 header files.
