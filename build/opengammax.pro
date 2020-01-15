@@ -32,8 +32,13 @@ win32 {
   #CONFIG += console
 }
 unix {
-    INCLUDEPATH += /usr/include/qt4/qt /usr/local/qwt-6.1.0/include
-    LIBS += -L/usr/local/qwt-6.1.0/lib -lqwt -lasound
+    QT_INCLUDEPATH = /usr/include/qt4
+    QWT_INCLUDEPATH = /usr/include/qwt-qt4
+    INCLUDEPATH += $${QT_INCLUDEPATH} $${QWT_INCLUDEPATH}
+
+    QWT_LIB = -l:libqwt-qt4.so
+    LIBS += $${QWT_LIB} \
+        -lasound
     DEFINES += HAVE_ALSA
 }
 QMAKE_CXXFLAGS += -std=c++0x
@@ -42,11 +47,10 @@ QMAKE_CXXFLAGS += -std=c++0x
 # Qwt config end
 # GnuWin32 / GSL config:
 GSL_ROOT=../../gsl-1.16/
-win32 {
-    LIBS += -L$${GSL_ROOT}/.libs -L$${GSL_ROOT}/cblas/.libs
-    INCLUDEPATH += $${GSL_ROOT}
-}
-LIBS += -lgsl \
+INCLUDEPATH += $${GSL_ROOT}
+LIBS += -L$${GSL_ROOT}/.libs -L$${GSL_ROOT}/cblas/.libs
+GSL_LIB = -l:libgsl.so.0.17.0
+LIBS += $${GSL_LIB} \
     -lgslcblas
 
 # End of GNU GSL entries
@@ -54,8 +58,8 @@ LIBS += -lgsl \
 INCLUDEPATH += ../opengammamathfuncs
 win32:LIBS += -L../build-opengammamathfuncs-Desktop_Qt_5_1_1_MinGW_32bit-Release/release \
     -lopengammamathfuncs -lopengammamathfuncs -lqwt
-unix:LIBS += -L./../opengammamathfuncs -L/usr/local/qwt-5.2.2/lib\
-    -lopengammamathfuncs -lqwt
+unix:LIBS += -L./../opengammamathfuncs \
+    -lopengammamathfuncs
 
 # End of internal library
 # OpenGamma config:

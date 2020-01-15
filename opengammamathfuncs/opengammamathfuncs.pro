@@ -41,7 +41,10 @@ win32:win32-g++ {
     LIBS += -L../../gsl-1.16/.libs -L../../gsl-1.16/cblas/.libs
     INCLUDEPATH += ../../gsl-1.16
 }
-LIBS += -lgsl \
+GSL_ROOT=../../gsl-1.16/
+LIBS += -L$${GSL_ROOT}/.libs -L$${GSL_ROOT}/cblas/.libs
+GSL_LIB = -l:libgsl.so.0.17.0
+LIBS += $${GSL_LIB} \
     -lgslcblas
 
 unix:DESTDIR = ../opengammamathfuncs
